@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head> 
+        <title th:replace="~{jdbc/fragmentos/fragmentos_principales :: head}"/>
+    </head>
+    <body>
+        <div th:insert="~{jdbc/fragmentos/fragmentos_principales :: cabecera}"></div>
+        <div><b th:text="${marca_de_tiempo_tex}"></b> <span th:text="${timestamp}"/></div>
+        <div><b th:text="${status_tex}"></b> <span th:text="${status}"/></div>
+        <div><b th:text="${error_tex}"></b> <span th:text="${error}"/></div>
+        <div><b th:text="${ruta_tex}"></b> <span th:text="${path}"/></div>
+    </body>
+</html>
