@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import static inweb.spring.servidor_https_spring.controlador.Pagina_inicio_factoria.k_ok_tex;
 import static inweb.spring.servidor_https_spring.controlador.Pagina_inicio_factoria.k_titulo_tex;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  *
@@ -24,6 +25,7 @@ public class Con_jdbc_servidor_https_spring {
     public static String k_mensaje = "Servidor iniciado. ";
     
     @GetMapping(k_jdbc)
+    @PostMapping(k_jdbc)
     public String formulario_simple_get(Model model) throws Exception {
         oks ok = new oks();
         ResourceBundle in;
