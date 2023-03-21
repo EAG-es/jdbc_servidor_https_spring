@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import static inweb.spring.servidor_https_spring.Configuracion_servidor_https.k_path_restful_sin_csrf;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  *
@@ -54,7 +55,10 @@ public class Con_rest_jdbc_servidor_https_spring {
      * @return  
      * @throws java.lang.Exception 
      */
-    @GetMapping(k_path_crear)
+//    @GetMapping(k_path_crear)
+//    @PostMapping(k_path_crear)
+    @RequestMapping(value = k_path_crear, method = { RequestMethod.GET, RequestMethod.POST })    
+    @ResponseBody  // devuelve JSON
     public ResponseEntity<String> crear(@RequestHeader(required = true) Map<String, String> headers
             , @RequestBody(required = true) sql_comandos sql_comando) throws Exception {
         clabs clab;
@@ -91,8 +95,9 @@ public class Con_rest_jdbc_servidor_https_spring {
      * @return Un texto con las nuevas claves generadas automáticamente. 
      * @throws java.lang.Exception 
      */
-    @PostMapping(k_path_crear_auto)
-    @GetMapping(k_path_crear_auto)
+//    @GetMapping(k_path_crear_auto)
+//    @PostMapping(k_path_crear_auto)
+    @RequestMapping(value = k_path_crear_auto, method = { RequestMethod.GET, RequestMethod.POST })    
     @ResponseBody  // devuelve JSON
     public ResponseEntity crear_auto(@RequestHeader(required = true) Map<String, String> headers
             , @RequestBody(required = true) sql_comandos sql_comando) throws Exception {
@@ -129,8 +134,9 @@ public class Con_rest_jdbc_servidor_https_spring {
      * @return  
      * @throws java.lang.Exception  
      */
-    @PostMapping(k_path_leer)
-    @GetMapping(k_path_leer)
+//    @GetMapping(k_path_leer)
+//    @PostMapping(k_path_leer)
+    @RequestMapping(value = k_path_leer, method = { RequestMethod.GET, RequestMethod.POST })    
     @ResponseBody  // devuelve JSON
     public ResponseEntity leer(@RequestHeader(required = true) Map<String, String> headers
             , @RequestBody(required = true) sql_comandos sql_comando) throws Exception {
@@ -167,8 +173,10 @@ public class Con_rest_jdbc_servidor_https_spring {
      * @return  
      * @throws java.lang.Exception 
      */
-    @PostMapping(k_path_actualizar)
-    @GetMapping(k_path_actualizar)
+//    @GetMapping(k_path_actualizar)
+//    @PostMapping(k_path_actualizar)
+    @RequestMapping(value = k_path_actualizar, method = { RequestMethod.GET, RequestMethod.POST })    
+    @ResponseBody  // devuelve JSON
     public ResponseEntity<String> actualizar(@RequestHeader(required = true) Map<String, String> headers
             , @RequestBody(required = true) sql_comandos sql_comando) throws Exception {
         clabs clab;
@@ -203,9 +211,11 @@ public class Con_rest_jdbc_servidor_https_spring {
      * @param sql_comando
      * @return 
      * @throws java.lang.Exception
-     */
-    @PostMapping(k_path_borrar)
-    @GetMapping(k_path_borrar)
+//     */
+//    @PostMapping(k_path_borrar)
+//    @GetMapping(k_path_borrar)
+    @RequestMapping(value = k_path_borrar, method = { RequestMethod.GET, RequestMethod.POST })    
+    @ResponseBody  // devuelve JSON
     public ResponseEntity<String> borrar(@RequestHeader(required = true) Map<String, String> headers
             , @RequestBody(required = true) sql_comandos sql_comando) throws Exception {
         clabs clab;
